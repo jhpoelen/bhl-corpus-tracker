@@ -1,20 +1,15 @@
 #!/bin/bash
 #
-# Tracks pdf content associated with 
-# provided container title as indexed by the 
-# Biodiversity Heritage Library
+# Track amd package pdfs related to a container title in the BHL "part" index
 #
-
-# track pdfs related to a container title in the BHL "part" index
+# assumes that a BHL parts index is already available in the Preston archive.
+#
 
 set -x
 
 title=${1:-Revue suisse de zoologie}
 
-track_part_index() {
-  local partIndex="https://biodiversitylibrary.org/data/part.txt"
-  preston track "${partIndex}"
-}
+echo "track and package BHL container with title [${title}]"
 
 track_part_pdfs() {
   preston track -f <(preston ls\
@@ -28,5 +23,4 @@ track_part_pdfs() {
    | head)
 }
 
-#track_part_index
 track_part_pdfs
