@@ -8,10 +8,12 @@ This repository contains tools to help list and track works in biodiversity that
 
 These tools include:
 
-1. ```index.sh``` - track, download and version a copy of the BHL parts index as a Preston archive
+1. [```index.sh```](index.sh) - track, download and version a copy of the BHL parts index as a Preston archive
 
-2. ```ls.sh``` - uses a versioned copy of the BHL parts index to list titles of BHL containers from large to small. 
+2. [```ls.sh```](ls.sh) - uses a versioned copy of the BHL parts index to list titles of BHL containers from large to small. 
 
-3. ```package.sh``` - uses a versioned copy of the BHL parts index to package the content (e.g. PDFs) of a BHL container into a Preston archive.
+3. [```ls-parts.sh```](ls-parts.sh) - uses a versioned copy of the BHL parts index to all parts associated with titles in BHL containers. 
 
-4. ```publish.sh``` - publishes a packaged BHL container as a collection of Zenodo
+4. [```package.sh```](package.sh) - uses a versioned copy of the BHL parts index to package the content (e.g. PDFs) of a BHL container into a Preston archive.
+
+5. [```publish.sh```](publish.sh) - publishes a packaged BHL container as a collection of Zenodo
