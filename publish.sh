@@ -11,5 +11,13 @@ title=${1:-Revue suisse de zoologie}
 
 echo "publish content associated with BHL container with title [${title}]"
 
+#preston track "https://www.biodiversitylibrary.org/data/RIS/bhlpart.ris.zip"
 
-echo "NOT YET IMPLEMENTED"
+#curl "https://www.biodiversitylibrary.org/data/RIS/bhlpart.ris"\
+# | head -n100\
+# | preston track
+
+preston head\
+ | preston cat\
+ | grep hasVersion\
+ | preston ris-stream
