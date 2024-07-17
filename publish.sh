@@ -9,15 +9,12 @@ set -x
 
 title=${1:-Revue suisse de zoologie}
 
-echo "publish content associated with BHL container with title [${title}]"
+echo "generate zenodo metadata content associated with BHL container with title [${title}]"
 
-#preston track "https://www.biodiversitylibrary.org/data/RIS/bhlpart.ris.zip"
-
-#curl "https://www.biodiversitylibrary.org/data/RIS/bhlpart.ris"\
-# | head -n100\
-# | preston track
-
-preston head\
- | preston cat\
+preston ls\
+ | grep "bhlpart.ris.zip"\
  | grep hasVersion\
- | preston ris-stream
+ | head -1\
+ | preston ris-stream --community bhl-plazi-test\
+ | tee zenodo-meta.json\
+ | preston zenodo --community bhl-plazi-test

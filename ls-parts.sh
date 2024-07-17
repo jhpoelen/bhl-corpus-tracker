@@ -15,6 +15,7 @@ list_parts() {
   preston ls\
    | grep "part.txt"\
    | grep hasVersion\
+   | head -1\
    | preston cat\
    | mlr --tsvlite filter -s title="${title}" '$ContainerTitle == @title'
 }
