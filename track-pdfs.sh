@@ -9,7 +9,7 @@ set -x
 
 title=${1:-Revue suisse de zoologie}
 
-echo "track and package BHL container with title [${title}]"
+>&2 echo "track and package BHL container with title [${title}]"
 
 track_part_pdfs() {
   preston track -f <(preston ls\

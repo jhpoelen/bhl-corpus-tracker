@@ -17,7 +17,9 @@ list_parts() {
    | grep hasVersion\
    | head -1\
    | preston cat\
-   | mlr --tsvlite filter -s title="${title}" '$ContainerTitle == @title'
+   | mlr --tsvlite filter -s title="${title}" '$ContainerTitle == @title'\
+   | mlr --tsvlite cut -f PartID\
+   | sed 's+^+https://www.biodiversitylibrary.org/part/+g'
 }
 
 list_parts
