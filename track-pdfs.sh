@@ -12,7 +12,7 @@ title=${1:-Revue suisse de zoologie}
 >&2 echo "track and package BHL container with title [${title}]"
 
 track_part_pdfs() {
-  preston track -f <(preston ls\
+  preston track --algo md5 -f <(preston ls\
    | grep "part.txt"\
    | grep hasVersion\
    | head -1\
@@ -20,8 +20,7 @@ track_part_pdfs() {
    | mlr --tsvlite filter -s title="${title}" '$ContainerTitle == @title'\
    | mlr --tsvlite cut -f PartID\
    | sed 's+^+https://www.biodiversitylibrary.org/partpdf/+g'\
-   | tail -n+2\
-   | head)
+   | tail -n+2)
 }
 
 track_part_pdfs
