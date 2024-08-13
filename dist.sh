@@ -14,19 +14,20 @@ mkdir -p "${SAMPLE_DIR}"
 
 cd "${SAMPLE_DIR}"
 
-cat "${SCRIPT_DIR}/bhl-blr-titles.txt"\
- > titles.txt
-
 # track this script
-preston track "file://${THIS_SCRIPT}"
+#preston track "file://${THIS_SCRIPT}"
+
+cat "${SCRIPT_DIR}/titles.txt"\
+ > titles.txt
 
 ${SCRIPT_DIR}/index.sh
 
 cat titles.txt\
- | parallel ../../ls-parts.sh {1}\
+ | xargs -I '{}' ../../ls-parts.sh '{}'\
+ | tail -n+2\
  | tee parts.txt
 
-preston track -f <(cat parts.txt | sed "s/part/partpdf/g")
+preston track --algo md5 -f <(cat parts.txt | sed "s/part/partpdf/g")
 
-${SCRIPT_DIR}/ls-zenodo.sh\
- | tee zenodo.json
+#${SCRIPT_DIR}/ls-zenodo.sh\
+# | tee zenodo.json

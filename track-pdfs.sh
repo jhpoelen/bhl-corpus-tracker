@@ -12,7 +12,7 @@ title=${1:-Revue suisse de zoologie}
 >&2 echo "track and package BHL container with title [${title}]"
 
 track_part_pdfs() {
-  preston track --algo md5 -f <(preston ls\
+  preston track --algo md5 -f <(preston ls --algo md5\
    | grep "part.txt"\
    | grep hasVersion\
    | head -1\

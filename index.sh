@@ -8,6 +8,6 @@
 
 set -x
 
-preston track\
+preston track --algo md5\
  "https://biodiversitylibrary.org/data/part.txt"\
  "https://www.biodiversitylibrary.org/data/RIS/bhlpart.ris.zip"

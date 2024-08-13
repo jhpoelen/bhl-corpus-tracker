@@ -5,7 +5,7 @@
 # assumes that a BHL part index has previously been tracked.
 #
 
-preston ls\
+preston ls --algo md5\
  | grep part.txt\
  | grep hasVersion\
  | head -1\

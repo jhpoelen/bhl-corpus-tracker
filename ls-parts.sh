@@ -12,7 +12,7 @@ title=${1:-Revue suisse de zoologie}
 >&2 echo "list parts of BHL container with title [${title}]"
 
 list_parts() {
-  preston ls\
+  preston ls --algo md5\
    | grep "part.txt"\
    | grep hasVersion\
    | head -1\
