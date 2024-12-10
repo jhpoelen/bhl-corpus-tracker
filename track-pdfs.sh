@@ -23,4 +23,19 @@ track_part_pdfs() {
    | tail -n+2)
 }
 
+track_item_pdfs() {
+  preston track --algo md5 -f <(preston ls --algo md5\
+   | grep "part.txt"\
+   | grep hasVersion\
+   | head -1\
+   | preston cat\
+   | mlr --tsvlite filter -s title="${title}" '$ContainerTitle == @title'\
+   | mlr --tsvlite cut -f ItemID\
+   | sed 's+^+https://www.biodiversitylibrary.org/itempdf/+g'\
+   | tail -n+2\
+   | sort\
+   | uniq)
+}
+
 track_part_pdfs
+#track_item_pdfs
