@@ -105,8 +105,8 @@ track_item_pdfs() {
 
 #track_part_pdfs
 
-#register_part_pdf_biodiversitylibrary_alternates
-#track_part_pdf_biodiversitylibrary_alternates
+register_part_pdf_biodiversitylibrary_alternates
+track_part_pdf_biodiversitylibrary_alternates
 
 register_part_pdf_scielo_alternates
 track_part_pdf_scielo_alternates
