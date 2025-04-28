@@ -31,7 +31,7 @@ track_part_pdfs() {
 # https://github.com/bio-guoda/preston/issues/331
 #
 
-track_part_pdf_alternates() {
+track_part_pdf_biodiversitylibrary_alternates() {
   preston track --algo md5 -f <(preston ls --algo md5\
    | grep "part.txt"\
    | grep hasVersion\
@@ -44,7 +44,7 @@ track_part_pdf_alternates() {
    | grep 'biodiversitylibrary.org')
 }
 
-register_part_pdf_alternates() {
+register_part_pdf_biodiversitylibrary_alternates() {
   preston ls --algo md5\
    | grep "part.txt"\
    | grep hasVersion\
@@ -59,6 +59,35 @@ register_part_pdf_alternates() {
    | sed 's/$/> ./g'\
    | preston append --algo md5
 }
+
+track_part_pdf_scielo_alternates() {
+  preston track --algo md5 -f <(preston ls --algo md5\
+   | grep "part.txt"\
+   | grep hasVersion\
+   | head -1\
+   | preston cat\
+   | mlr --tsvlite filter -s title="${title}" '$ContainerTitle == @title'\
+   | mlr --tsvlite filter '$ExternalUrl =~ ".*scielo[.].*"' then cut -f ExternalUrl\
+   | tail -n+2\
+   | sed 's/sci_arttext/sci_pdf/g')
+}
+
+register_part_pdf_scielo_alternates() {
+  preston ls --algo md5\
+   | grep "part.txt"\
+   | grep hasVersion\
+   | head -1\
+   | preston cat\
+   | mlr --tsvlite filter -s title="${title}" '$ContainerTitle == @title'\
+   | mlr --tsvlite filter '$ExternalUrl =~ ".*scielo[.].*"' then cut -f PartID,ExternalUrl\
+   | tail -n+2\
+   | sed 's/sci_arttext/sci_pdf/g'\
+   | sed -E 's%^([0-9]+)%<https://www.biodiversitylibrary.org/partpdf/\1>%'\
+   | sed -E "s+\t+ <http://www.w3.org/ns/prov#alternateOf> <+g"\
+   | sed 's/$/> ./g'\
+   | preston append --algo md5
+}
+
 
 track_item_pdfs() {
   preston track --algo md5 -f <(preston ls --algo md5\
@@ -75,6 +104,11 @@ track_item_pdfs() {
 }
 
 #track_part_pdfs
-register_part_pdf_alternates
-track_part_pdf_alternates
+
+#register_part_pdf_biodiversitylibrary_alternates
+#track_part_pdf_biodiversitylibrary_alternates
+
+register_part_pdf_scielo_alternates
+track_part_pdf_scielo_alternates
+
 #track_item_pdfs
