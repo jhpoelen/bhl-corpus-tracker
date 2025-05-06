@@ -30,4 +30,5 @@ join -t $'\t'\
  | sed 's+^+<https://www.biodiversitylibrary.org/part/+g'\
  | sed 's+\t+> <http://purl.org/dc/elements/1.1/license> <+g'\
  | sed 's+$+> .+g'\
- | grep -v "<NA>"
+ | grep -v "<NA>"\
+ | grep -v "<>"
