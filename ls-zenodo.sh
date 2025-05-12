@@ -6,7 +6,7 @@
 # Also, the associated pdfs are assumed to be tracked in the same Preston archive.
 #
 
-communities=${1:-bhl-plazi-test-20240725}
+communities=${1:-bhl-plazi-test-20250512}
 
 
 set -x

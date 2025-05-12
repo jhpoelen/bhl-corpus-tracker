@@ -9,23 +9,18 @@ set -xe
 SAMPLE_DIR=target/$(uuidgen)
 SCRIPT_DIR="../.."
 THIS_SCRIPT="${PWD}/$0"
+NUMBER_OF_SAMPLES="${1:-50}"
 
 mkdir -p "${SAMPLE_DIR}"
 
 cd "${SAMPLE_DIR}"
-
-cat "${SCRIPT_DIR}/bhl-blr-titles.txt"\
- | shuf\
- | head -n5\
- > titles.txt
 
 # track this script
 preston track "file://${THIS_SCRIPT}"
 
 ${SCRIPT_DIR}/index.sh
 
-cat titles.txt\
- | parallel '../../ls-parts.sh ${1} | shuf | head'\
+${SCRIPT_DIR}/ls-parts.sh | shuf | head -n${NUMBER_OF_SAMPLES}\
  | tee parts.txt
 
 preston track -f <(cat parts.txt | sed "s/part/partpdf/g")
