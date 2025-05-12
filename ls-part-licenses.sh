@@ -27,7 +27,7 @@ join -t $'\t'\
  <(part-pairs-concat | tail -n+2 | sort -t $'\t' -s -k 1b,1)\
  <(cat license-map.tsv | tail -n+2 | sort -t $'\t' -s -k 1b,1)\
  | cut -f2,3\
- | sed 's+^+<https://www.biodiversitylibrary.org/part/+g'\
+ | sed 's+^+<urn:lsid:biodiversitylibrary.org:part:+g'\
  | sed 's+\t+> <http://purl.org/dc/elements/1.1/license> <+g'\
  | sed 's+$+> .+g'\
  | grep -v "<https://spdx.org/licenses/NA>"\
