@@ -26,6 +26,9 @@ cat <(echo -e "verbatim\tPartID")\
 }
  
 
+# first cache the bhl parts index
+parts
+
 join -t $'\t'\
  <(part-pairs-concat | tail -n+2 | sort -t $'\t' -s -k 1b,1)\
  <(cat ${SCRIPT_DIR}/bhl-part-license-map.tsv | tail -n+2 | sort -t $'\t' -s -k 1b,1)\
