@@ -27,7 +27,7 @@ cat <(echo -e "verbatim\tPartID")\
  
 
 # first cache the bhl parts index
-parts
+parts > /dev/null
 
 join -t $'\t'\
  <(part-pairs-concat | tail -n+2 | sort -t $'\t' -s -k 1b,1)\
