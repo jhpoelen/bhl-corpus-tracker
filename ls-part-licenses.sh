@@ -25,7 +25,7 @@ cat <(echo -e "verbatim\tPartID")\
 
 join -t $'\t'\
  <(part-pairs-concat | tail -n+2 | sort -t $'\t' -s -k 1b,1)\
- <(cat license-map.tsv | tail -n+2 | sort -t $'\t' -s -k 1b,1)\
+ <(cat bhl-part-license-map.tsv | tail -n+2 | sort -t $'\t' -s -k 1b,1)\
  | cut -f2,3\
  | sed 's+^+<urn:lsid:biodiversitylibrary.org:part:+g'\
  | sed 's+\t+> <http://purl.org/dc/elements/1.1/license> <+g'\
