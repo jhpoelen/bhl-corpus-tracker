@@ -8,15 +8,20 @@
 #
 #
 
+set -x
+
 SCRIPT_PATH="$(readlink -f $0)"
 SCRIPT_DIR="$(dirname ${SCRIPT_PATH})"
 
 parts() {
+  # a versioned copy of https://biodiversitylibrary.org/data/part.txt
   preston cat --remote https://zenodo.org,https://linker.bio hash://md5/f235166f8cb094f56063680af4d1328a
 }
 
 license-map() {
-  # see also ${SCRIPT_DIR}/bhl-part-license-map.tsv
+  # see also ${SCRIPT_DIR}/bhl-part-license-map.tsv 
+  # and a copy of https://codeberg.org/jhpoelen/bhl-corpus-tracker/raw/branch/main/bhl-part-license-map.tsv
+  #
   preston cat --remote https://softwareheritage.org,https://linker.bio hash://sha256/d54e32e9066d7365f47a17b35dd72d57f63308d873700619d61a7ca9a3195a81
 }  
 
