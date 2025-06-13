@@ -37,7 +37,7 @@ cat <(echo -e "verbatim\tPartID")\
  <(part-pairs RightsStatement)\
  <(part-pairs RightsStatus)\
  <(part-pairs LicenseName)\
- <(part-pairs LicenseUrl)
+ <(part-pairs LicenseUrl)\
  <(part-pairs ContributorName)
 }
  
