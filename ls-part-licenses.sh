@@ -19,10 +19,12 @@ parts() {
 }
 
 license-map() {
-  # see also ${SCRIPT_DIR}/bhl-part-license-map.tsv 
-  # and a copy of https://codeberg.org/jhpoelen/bhl-corpus-tracker/raw/branch/main/bhl-part-license-map.tsv
+  # see also
+  # cat ${SCRIPT_DIR}/bhl-part-license-map.tsv 
+  # as well as
+  # https://codeberg.org/jhpoelen/bhl-corpus-tracker/raw/branch/main/bhl-part-license-map.tsv
   #
-  preston cat --remote https://softwareheritage.org,https://linker.bio hash://sha256/d54e32e9066d7365f47a17b35dd72d57f63308d873700619d61a7ca9a3195a81
+  preston cat --remote https://softwareheritage.org,https://linker.bio hash://sha256/5704812923bb422d3907580df5d530c1fdcd9bd2c5ed3cee181ab29c0afcf3ba
 }  
 
 part-pairs() {
