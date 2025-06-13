@@ -1,3 +1,5 @@
+[![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/jhpoelen/bhl-corpus-tracker/)](https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/jhpoelen/bhl-corpus-tracker)
+
 List, track, and publish pdf corpora made available through Biodiversity Heritage Library.
 
 The Biodiversity Heritage Library (BHL) contains hundreds of thousands of open access works related to biodiversity, ecology, taxonomy and other fields related to biology.
