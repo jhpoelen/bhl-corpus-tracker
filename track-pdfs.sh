@@ -105,10 +105,41 @@ track_item_pdfs() {
 
 #track_part_pdfs
 
-register_part_pdf_biodiversitylibrary_alternates
-track_part_pdf_biodiversitylibrary_alternates
+#register_part_pdf_biodiversitylibrary_alternates
+#track_part_pdf_biodiversitylibrary_alternates
 
-register_part_pdf_scielo_alternates
-track_part_pdf_scielo_alternates
+#register_part_pdf_scielo_alternates
+#track_part_pdf_scielo_alternates
+
+register_part_pdf_scielo_soft_redirects() {
+  preston ls --algo md5\
+   | grep hasVersion\
+   | grep -E "[.]scielo[.]"\
+   | grep -v well-known\
+   | grep -Ev "scielo[.]br"\
+   | preston cat\
+   | grep -o "<script>setTimeout.*</script>"\
+   | grep -o "http.*pdf"
+}
+
+register_part_pdf_scielo_403_redirects() {
+  preston ls --algo md5\
+   | grep hasVersion\
+   | grep -E "scielo[.]cl"\
+   | grep well-known\
+   | head -1\
+   | grep -oE "^<([^>]+)>"\
+   | tr -d "<"\
+   | tr -d ">"
+
+} 
+
+#register_part_pdf_scielo_soft_redirects
+#track_part_pdf_scielo_soft_redirects
+
+#register_part_pdf_scielo_403_redirects
+#track_part_pdf_scielo_403_redirects
+
+
 
 #track_item_pdfs
