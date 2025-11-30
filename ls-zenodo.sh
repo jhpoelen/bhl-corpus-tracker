@@ -6,15 +6,15 @@
 # Also, the associated pdfs are assumed to be tracked in the same Preston archive.
 #
 
-communities=${1:-bhl-plazi-test-20250512}
+communities=${1:-bhl-plazi-test-20250613}
 
 
 set -x
 
 >&2 echo "converting RIS stream into Zenodo record metadata"
 
-preston ls\
+preston ls --algo md5\
  | grep hasVersion\
  | grep "bhlpart.ris.zip"\
  | head -1\
- | preston ris-stream --communities $communities
+ | preston ris-stream --algo md5 --communities $communities
