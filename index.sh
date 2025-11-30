@@ -2,16 +2,14 @@
 #
 # version/track a versioned copy of the 
 # Biodiversity Heritage Library (BHL)
-# parts index and associated RIS formatted 
+# item and part indeces and associated RIS formatted 
 # references 
 #
 
 set -x
 
-#preston track --algo md5\
-# "https://biodiversitylibrary.org/data/part.txt"\
-# "https://www.biodiversitylibrary.org/data/RIS/bhlpart.ris.zip"
-
-preston track\
- "https://zenodo.org/records/15269300/files/part.txt"\
- "https://zenodo.org/records/15269300/files/bhlpart.ris.zip"
+preston track --algo md5\
+ "https://biodiversitylibrary.org/data/part.txt"\
+ "https://biodiversitylibrary.org/data/item.txt"\
+ "https://www.biodiversitylibrary.org/data/RIS/bhlitem.ris.zip"\
+ "https://www.biodiversitylibrary.org/data/RIS/bhlpart.ris.zip"
