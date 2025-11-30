@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# Track amd package pdfs related to a container title in the BHL "part" index
+# Track amd package pdfs related to a container title in the BHL "item" index
 #
-# assumes that a BHL parts index is already available in the Preston archive.
+# assumes that a BHL item index is already available in the Preston archive.
 #
 
 set -x
