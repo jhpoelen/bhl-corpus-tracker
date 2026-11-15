@@ -26,4 +26,8 @@ For an example of resulting versioned bhl corpus see:
 
 > Poelen, J. H., & Agosti, D. (2025). A Versioned Literature Corpus derived from Biodiversity Heritage Library hash://md5/b3cd9de0685deeebf57a5d225e59c10f (Version 0.3) [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.16616872
 
+with abstract:
+
+> Biodiversity Heritage Library (BHL, https://biodiversitylibrary.org) contains hundreds of thousands of digital works related to biodiversity. This publications contains a versioned snapshot of work metadata and the digital signatures of their associated pdfs as seen in period 2025-03-26/2025-06-25 . 
+
 Also, if available, please see https://github.com/bhl-blr/bhl-blr.github.io and https://bhl-blr.github.io for example on how to present metadata associated with versioned bhl corpora in markdown or html respectively.
